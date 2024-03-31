@@ -31,6 +31,7 @@ public class WindController : MonoBehaviour
     public Action onWindStop;
     public Action onBallStop;
     public Action<float, float> onWindDurationChanged;
+    public ParticleSystem windParticle;
 
     public bool ballMoving => !(playerBody.velocity.magnitude < 0.05f && playerBody.velocity.y <= 0.01f);
 
@@ -39,7 +40,7 @@ public class WindController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        windParticle.Stop();
     }
 
     private void OnDisable()
@@ -97,6 +98,8 @@ public class WindController : MonoBehaviour
                 windDirection = Input.mousePosition - initialPosition;
                 windDirection.z = windDirection.y;
                 windDirection.y = 0;
+                windParticle.transform.rotation = Quaternion.Euler(0, 90 - Mathf.Atan2(windDirection.z, windDirection.x) * Mathf.Rad2Deg, 0);
+                windParticle.Play();
                 float normalizedPower = Mathf.Clamp(windDirection.magnitude / (Screen.height / 2), 0, 1);
                 onStrokeTaken?.Invoke();
                 audioSource.clip = windSFX;
@@ -121,6 +124,7 @@ public class WindController : MonoBehaviour
         powerElement.gameObject.SetActive(false);
         audioSource.Stop();
         audioSource.time = 0;
+        windParticle.Stop();
     }
 
     // Update is called once per frame
@@ -132,12 +136,13 @@ public class WindController : MonoBehaviour
             accumulatedTime += Time.fixedDeltaTime;
             float percentAccumulated = accumulatedTime / fireWindDuration;
             const float falloffThreshold = 0.8f;
-            if(percentAccumulated >= falloffThreshold)
+            if (percentAccumulated >= falloffThreshold)
             {
                 audioSource.volume = Mathf.Lerp(1, 0, (percentAccumulated - falloffThreshold) / (1 - falloffThreshold));
             }
             if (accumulatedTime >= fireWindDuration)
             {
+                windParticle.Stop();
                 audioSource.Stop();
                 audioSource.time = 0;
                 windPower = 0;
