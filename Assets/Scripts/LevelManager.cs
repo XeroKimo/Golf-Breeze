@@ -31,12 +31,12 @@ public class LevelManager : MonoBehaviour
         gameUI.windDuration.value = controller.windDuration;
         scoreboardUI.Initialize(holes);
         scoreboardUI.scoreLines[currentHole].scoreText.text = "0";
-        scoreboardUI.quitButton.gameObject.SetActive(false);
         controller.onStrokeTaken += () =>
         {
             stroke++;
             scoreboardUI.scoreLines[currentHole].scoreText.text = stroke.ToString();
             gameUI.stroke.text = "Stroke: " + stroke;
+            gameUI.windDurationFillImage.material.color = gameUI.durationUnadjustableColor;
             float direction = 90 - Mathf.Atan2(controller.windDirection.z, controller.windDirection.x) * Mathf.Rad2Deg;
             if(direction < 0)
                 direction += 360;
@@ -55,6 +55,7 @@ public class LevelManager : MonoBehaviour
         {
             gameUI.windDuration.value = controller.windDuration;
             newBoundsEntered = false;
+            gameUI.windDurationFillImage.material.color = gameUI.durationAdjustableColor;
             if (holes.Any(hole => hole.goal.playerCollided))
             {
                 Debug.Log("Goal!");
@@ -67,7 +68,6 @@ public class LevelManager : MonoBehaviour
                     levelEnded = true;
                     controller.enabled = false;
                     scoreboardUI.gameObject.SetActive(true);
-                    scoreboardUI.quitButton.gameObject.SetActive(true);
                 }
             }
         };
@@ -98,6 +98,7 @@ public class LevelManager : MonoBehaviour
         currentHole++;
         scoreboardUI.gameObject.SetActive(true);
         controller.enabled = false;
+        gameUI.windDurationFillImage.material.color = gameUI.durationUnadjustableColor;
     }
 
     private void EndTransitionLevel()
@@ -109,6 +110,7 @@ public class LevelManager : MonoBehaviour
         Camera.main.transform.position = holes[currentHole].cameraPosition.transform.position;
         controller.playerBody.position = holes[currentHole].teePosition.transform.position;
         controller.lastHitPosition = holes[currentHole].teePosition.transform.position;
+        gameUI.windDurationFillImage.material.color = gameUI.durationAdjustableColor;
     }
 
     // Update is called once per frame

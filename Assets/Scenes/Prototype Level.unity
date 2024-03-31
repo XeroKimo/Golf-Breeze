@@ -955,6 +955,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 963194228}
     m_Modifications:
     - target: {fileID: 8336898903590438176, guid: 4323233dc5a0a4d4eb1c42ee29adaa2c, type: 3}
+      propertyPath: simulationSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336898903590438176, guid: 4323233dc5a0a4d4eb1c42ee29adaa2c, type: 3}
       propertyPath: ShapeModule.m_Scale.x
       value: 40
       objectReference: {fileID: 0}
@@ -4292,6 +4296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1037545369}
     m_Modifications:
+    - target: {fileID: 985019829937583571, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
+      propertyPath: m_Name
+      value: Ground (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 7173702420434890899, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -4331,10 +4339,6 @@ PrefabInstance:
     - target: {fileID: 7173702420434890899, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 985019829937583571, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
-      propertyPath: m_Name
-      value: Ground (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4930,6 +4934,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1037545369}
     m_Modifications:
+    - target: {fileID: 985019829937583571, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
+      propertyPath: m_Name
+      value: Ground (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 7173702420434890899, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -4969,10 +4977,6 @@ PrefabInstance:
     - target: {fileID: 7173702420434890899, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 985019829937583571, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
-      propertyPath: m_Name
-      value: Ground (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5547,7 +5551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 0e69e165bfabecd4f8c95baf6fcf9a0b, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -5825,6 +5829,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1037545369}
     m_Modifications:
+    - target: {fileID: 985019829937583571, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
+      propertyPath: m_Name
+      value: Ground (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 7173702420434890899, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10
@@ -5864,10 +5872,6 @@ PrefabInstance:
     - target: {fileID: 7173702420434890899, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 985019829937583571, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
-      propertyPath: m_Name
-      value: Ground (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6934,6 +6938,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1037545369}
     m_Modifications:
+    - target: {fileID: 985019829937583571, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
+      propertyPath: m_Name
+      value: Ground
+      objectReference: {fileID: 0}
     - target: {fileID: 7173702420434890899, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -6973,10 +6981,6 @@ PrefabInstance:
     - target: {fileID: 7173702420434890899, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 985019829937583571, guid: d422495ee1b7d9a419144233d918fe31, type: 3}
-      propertyPath: m_Name
-      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7818,6 +7822,9 @@ MonoBehaviour:
   stroke: {fileID: 2030394336}
   windDirection: {fileID: 1465931550}
   windDuration: {fileID: 808833643}
+  windDurationFillImage: {fileID: 1380118598}
+  durationAdjustableColor: {r: 1, g: 1, b: 1, a: 1}
+  durationUnadjustableColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!222 &1980929879
 CanvasRenderer:
   m_ObjectHideFlags: 0

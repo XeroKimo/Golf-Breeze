@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.AnimatedValues;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,19 +54,19 @@ public class WindController : MonoBehaviour
 
     private void Update()
     {
-        float oldWindDuration = windDuration;
-        windDuration += Input.mouseScrollDelta.y * windDurationIncrements;
-        windDuration = Mathf.Clamp(windDuration, minWindDuration, maxWindDuration);
-        if(oldWindDuration != windDuration)
-        {
-            onWindDurationChanged?.Invoke(oldWindDuration, windDuration);
-        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             ResetLastPosition();
         }
         if (canFire)
         {
+            float oldWindDuration = windDuration;
+            windDuration += Input.mouseScrollDelta.y * windDurationIncrements;
+            windDuration = Mathf.Clamp(windDuration, minWindDuration, maxWindDuration);
+            if (oldWindDuration != windDuration)
+            {
+                onWindDurationChanged?.Invoke(oldWindDuration, windDuration);
+            }
             if (Input.GetMouseButtonDown(0))
             {
                 initialPosition = Input.mousePosition;
