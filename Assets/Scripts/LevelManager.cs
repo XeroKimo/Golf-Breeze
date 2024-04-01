@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LevelManager : MonoBehaviour
     public List<Hole> holes;
     public GameUI gameUI;
     public ScoreboardUI scoreboardUI;
+    public Button closeTutorialButton;
 
     private bool newBoundsEntered = false;
     private bool playerInBounds = false;
@@ -87,8 +89,13 @@ public class LevelManager : MonoBehaviour
                 };
             }
         }
-
-        EndTransitionLevel();
+        BeginTransitionLevel();
+        levelTransitioning = false;
+        currentHole = 0;
+        closeTutorialButton.onClick.AddListener(() =>
+        {
+            EndTransitionLevel();
+        });
     }
 
     private void BeginTransitionLevel()
